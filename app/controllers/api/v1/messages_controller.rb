@@ -3,7 +3,7 @@ class Api::V1::MessagesController < ApplicationController
     @message = Message.order("RANDOM()").first
 
     respond_to do |format|
-      format.json { render json: @message }
+      format.json { render json: @message.content }
     end
   end
 end
