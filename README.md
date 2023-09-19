@@ -160,9 +160,22 @@ Install this project with:
 
 To run the project, execute the following command:
 
+Run build
+
 ```
-npm install -g webpack 
 npm run build
+```
+
+Run seeds (You need to first configure database.yml with your pg username and password)
+```
+rails db:drop
+rails db:create
+rails db:migrate
+rails db:seed
+```
+
+Run server
+```
 rails server
 ```
 
