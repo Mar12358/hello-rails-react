@@ -15,15 +15,20 @@ const greetingSlice = createSlice({
     builder
       .addCase(fetchGreeting.pending, (state) => {
         state.isLoading = true;
+        state.error = false;
       })
       .addCase(fetchGreeting.fulfilled, (state, action) => {
         state.greeting = action.payload;
         state.isLoading = false;
+        state.error = false;
 
       }).addCase(fetchGreeting.rejected, (state, action) => {
+        
         state.isLoading = false;
         state.error = true;
-        state.errMsg = action.payload.error;
+        console.log(action.error)
+        state.errMsg = action.error.message;
+        
       });
   }
 })
